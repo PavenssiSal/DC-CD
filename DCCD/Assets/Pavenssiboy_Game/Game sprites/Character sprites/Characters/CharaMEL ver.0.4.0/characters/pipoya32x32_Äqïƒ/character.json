@@ -1,0 +1,431 @@
+{
+	"Author": "ぴぽや Pipoya",
+	"URL": "https://pipoya.net/",
+	"Comment": "ウディタ・RPGツクール規格の32×32サイズ\n4方向歩行3パターンアニメのキャラチップが作れるセットです。\n子供キャラが作れます。",
+	"ProfileName": "ぴぽや32×32　子供",
+	"ImageSize": "Vector2( 96, 128 )",
+	"SpriteSize": "Vector2( 32, 32 )",
+	"Format": [
+		"4方向3パターン"
+	],
+	"Category": [
+		"身体",
+		"髪型",
+		"顔",
+		"衣装",
+		"衣装(頭顔)",
+		"アイテム",
+		"その他"
+	],
+	"ColorGroup": [
+		"スキン",
+		"耳",
+		"尻尾",
+		"髪",
+		"ひげ",
+		"目",
+		"メイク1",
+		"メイク2",
+		"衣装1",
+		"衣装2",
+		"衣装3",
+		"マント類1",
+		"マント類2",
+		"帽子類1",
+		"帽子類2",
+		"めがね類1",
+		"めがね類2",
+		"アイテム1",
+		"アイテム2",
+		"影",
+		"透かし表示",
+		"加工用画像",
+		"背景画像"
+	],
+	"LinkedMask": [
+		"帽子類1",
+		"帽子類2"
+	],
+	"SubCategory": {
+		"1": {
+			"Name": "スキン",
+			"Category": "身体",
+			"ColorGroup": "スキン",
+			"LayerName": "skin",
+			"Dir": "■肌",
+			"Order": "200",
+			"MaskFlag": "true",
+			"LightFlag": "false"
+		},
+		"2": {
+			"Name": "尻尾",
+			"Category": "身体",
+			"ColorGroup": "尻尾",
+			"LayerName": "tail",
+			"Dir": "尻尾",
+			"Order": "448",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"3": {
+			"Name": "尻尾",
+			"Category": "身体",
+			"ColorGroup": "尻尾",
+			"LayerName": "tail$",
+			"Dir": "尻尾$",
+			"Order": "55",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"4": {
+			"Name": "髪",
+			"Category": "髪型",
+			"ColorGroup": "髪",
+			"LayerName": "hair",
+			"Dir": "★髪",
+			"Order": "465",
+			"MaskFlag": "true",
+			"LightFlag": "true"
+		},
+		"5": {
+			"Name": "髪",
+			"Category": "髪型",
+			"ColorGroup": "髪",
+			"LayerName": "hair$",
+			"Dir": "★髪$",
+			"Order": "45",
+			"MaskFlag": "true",
+			"LightFlag": "true"
+		},
+		"6": {
+			"Name": "髪追加1",
+			"Category": "髪型",
+			"ColorGroup": "髪",
+			"LayerName": "hairadd",
+			"Dir": "髪追加",
+			"Order": "480",
+			"MaskFlag": "true",
+			"LightFlag": "true"
+		},
+		"7": {
+			"Name": "髪追加2",
+			"Category": "髪型",
+			"ColorGroup": "髪",
+			"LayerName": "hairadd2",
+			"Dir": "髪追加",
+			"Order": "481",
+			"MaskFlag": "true",
+			"LightFlag": "true"
+		},
+		"8": {
+			"Name": "髪追加1",
+			"Category": "髪型",
+			"ColorGroup": "髪",
+			"LayerName": "hairadd$",
+			"Dir": "髪追加$",
+			"Order": "30",
+			"MaskFlag": "true",
+			"LightFlag": "true"
+		},
+		"9": {
+			"Name": "髪追加2",
+			"Category": "髪型",
+			"ColorGroup": "髪",
+			"LayerName": "hairadd2$",
+			"Dir": "髪追加$",
+			"Order": "29",
+			"MaskFlag": "true",
+			"LightFlag": "true"
+		},
+		"10": {
+			"Name": "ひげ",
+			"Category": "髪型",
+			"ColorGroup": "ひげ",
+			"LayerName": "beard",
+			"Dir": "ひげ",
+			"Order": "455",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"11": {
+			"Name": "目",
+			"Category": "顔",
+			"ColorGroup": "目",
+			"LayerName": "eyes",
+			"Dir": "●目",
+			"Order": "440",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"12": {
+			"Name": "耳",
+			"Category": "顔",
+			"ColorGroup": "耳",
+			"LayerName": "ears",
+			"Dir": "耳",
+			"Order": "475",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"13": {
+			"Name": "耳",
+			"Category": "顔",
+			"ColorGroup": "耳",
+			"LayerName": "ears$",
+			"Dir": "耳$",
+			"Order": "35",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"14": {
+			"Name": "メイク1",
+			"Category": "顔",
+			"ColorGroup": "メイク1",
+			"LayerName": "makeup",
+			"Dir": "メイク",
+			"Order": "435",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"15": {
+			"Name": "メイク2",
+			"Category": "顔",
+			"ColorGroup": "メイク2",
+			"LayerName": "makeup2",
+			"Dir": "メイク",
+			"Order": "436",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"16": {
+			"Name": "衣装1",
+			"Category": "衣装",
+			"ColorGroup": "衣装1",
+			"LayerName": "costume",
+			"Dir": "■服",
+			"Order": "445",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"17": {
+			"Name": "衣装2",
+			"Category": "衣装",
+			"ColorGroup": "衣装2",
+			"LayerName": "costume2",
+			"Dir": "■服",
+			"Order": "446",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"18": {
+			"Name": "衣装3",
+			"Category": "衣装",
+			"ColorGroup": "衣装3",
+			"LayerName": "costume3",
+			"Dir": "■服",
+			"Order": "447",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"19": {
+			"Name": "マント類1",
+			"Category": "衣装",
+			"ColorGroup": "マント類1",
+			"LayerName": "cloak",
+			"Dir": "マント",
+			"Order": "450",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"20": {
+			"Name": "マント類2",
+			"Category": "衣装",
+			"ColorGroup": "マント類2",
+			"LayerName": "cloak2",
+			"Dir": "マント",
+			"Order": "451",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"21": {
+			"Name": "マント類1",
+			"Category": "衣装",
+			"ColorGroup": "マント類1",
+			"LayerName": "cloak$",
+			"Dir": "マント$",
+			"Order": "50",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"22": {
+			"Name": "マント類2",
+			"Category": "衣装",
+			"ColorGroup": "マント類2",
+			"LayerName": "cloak2$",
+			"Dir": "マント$",
+			"Order": "49",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"23": {
+			"Name": "帽子類1",
+			"Category": "衣装(頭顔)",
+			"ColorGroup": "帽子類1",
+			"LayerName": "hat",
+			"Dir": "帽子",
+			"Order": "485",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"24": {
+			"Name": "帽子類2",
+			"Category": "衣装(頭顔)",
+			"ColorGroup": "帽子類2",
+			"LayerName": "hat2",
+			"Dir": "帽子",
+			"Order": "486",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"25": {
+			"Name": "帽子類1",
+			"Category": "衣装(頭顔)",
+			"ColorGroup": "帽子類1",
+			"LayerName": "hat$",
+			"Dir": "帽子$",
+			"Order": "25",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"26": {
+			"Name": "帽子類2",
+			"Category": "衣装(頭顔)",
+			"ColorGroup": "帽子類2",
+			"LayerName": "hat2$",
+			"Dir": "帽子$",
+			"Order": "24",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"27": {
+			"Name": "めがね類1",
+			"Category": "衣装(頭顔)",
+			"ColorGroup": "めがね類1",
+			"LayerName": "glasses",
+			"Dir": "めがね",
+			"Order": "460",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"28": {
+			"Name": "めがね類2",
+			"Category": "衣装(頭顔)",
+			"ColorGroup": "めがね類2",
+			"LayerName": "glasses2",
+			"Dir": "めがね",
+			"Order": "461",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"29": {
+			"Name": "アイテム1",
+			"Category": "アイテム",
+			"ColorGroup": "アイテム1",
+			"LayerName": "item",
+			"Dir": "アイテム",
+			"Order": "490",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"30": {
+			"Name": "アイテム2",
+			"Category": "アイテム",
+			"ColorGroup": "アイテム2",
+			"LayerName": "item2",
+			"Dir": "アイテム",
+			"Order": "491",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"31": {
+			"Name": "アイテム1",
+			"Category": "アイテム",
+			"ColorGroup": "アイテム1",
+			"LayerName": "item$",
+			"Dir": "アイテム$",
+			"Order": "20",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"32": {
+			"Name": "アイテム2",
+			"Category": "アイテム",
+			"ColorGroup": "アイテム2",
+			"LayerName": "item2$",
+			"Dir": "アイテム$",
+			"Order": "19",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"33": {
+			"Name": "影",
+			"Category": "その他",
+			"ColorGroup": "影",
+			"LayerName": "shadow",
+			"Dir": "影",
+			"Order": "10",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"34": {
+			"Name": "透かし表示",
+			"Category": "その他",
+			"ColorGroup": "透かし表示",
+			"LayerName": "watermark",
+			"Dir": "copyright",
+			"Order": "500",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"35": {
+			"Name": "加工用画像",
+			"Category": "その他",
+			"ColorGroup": "加工用画像",
+			"LayerName": "processedimage",
+			"Dir": "加工用画像",
+			"Order": "430",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"36": {
+			"Name": "加工用画像",
+			"Category": "その他",
+			"ColorGroup": "加工用画像",
+			"LayerName": "processedimage$1",
+			"Dir": "加工用画像_下",
+			"Order": "15",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"37": {
+			"Name": "加工用画像",
+			"Category": "その他",
+			"ColorGroup": "加工用画像",
+			"LayerName": "processedimage$2",
+			"Dir": "加工用画像_上",
+			"Order": "495",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		},
+		"38": {
+			"Name": "背景画像",
+			"Category": "その他",
+			"ColorGroup": "背景画像",
+			"LayerName": "bg",
+			"Dir": "背景画像",
+			"Order": "0",
+			"MaskFlag": "false",
+			"LightFlag": "false"
+		}
+	}
+}

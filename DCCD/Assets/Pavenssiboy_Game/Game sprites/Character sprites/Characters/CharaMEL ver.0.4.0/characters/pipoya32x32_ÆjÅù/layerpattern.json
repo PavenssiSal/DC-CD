@@ -1,0 +1,12 @@
+{
+	"マントを帽子の上にする": {
+		"cloak": {
+			"OW_Order": "hat",
+			"Visible": null
+		},
+		"hat": {
+			"OW_Order": "cloak",
+			"Visible": null
+		}
+	}
+}
