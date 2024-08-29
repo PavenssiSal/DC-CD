@@ -1,0 +1,475 @@
+fileFormatVersion: 2
+guid: dcb0b7c3196a12c4dbee9cbb623deeb1
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: attack1&2&3 without weapon_Frame_0
+    originalName: 
+    pivot: {x: 0.5333333, y: -0.76190484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 15
+      height: 21
+    spriteID: b3b8bedd8fc5fdb45b5de54d3faa9f59
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: attack1&2&3 without weapon_Frame_1
+    originalName: 
+    pivot: {x: 0.41666663, y: -0.76190484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 49
+      y: 4
+      width: 12
+      height: 21
+    spriteID: a663156f2b28e454b8b68ebac71a3f32
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 49, y: 4}
+  - name: attack1&2&3 without weapon_Frame_2
+    originalName: 
+    pivot: {x: 0.5333333, y: -0.8000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 62
+      width: 15
+      height: 20
+    spriteID: 4ec7235b963eb184d942150712066b61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 62}
+  - name: attack1&2&3 without weapon_Frame_3
+    originalName: 
+    pivot: {x: 0.5333333, y: -0.76190484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 33
+      width: 15
+      height: 21
+    spriteID: b2147107ec69ff4409406b5bcd2060b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 33}
+  - name: attack1&2&3 without weapon_Frame_4
+    originalName: 
+    pivot: {x: 0.6666666, y: -0.76190484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 49
+      y: 33
+      width: 12
+      height: 21
+    spriteID: 806967fe3ea3e1f42aadb3369e93bbdd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 49, y: 33}
+  - name: attack1&2&3 without weapon_Frame_5
+    originalName: 
+    pivot: {x: 0.5333333, y: -0.8000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 90
+      width: 15
+      height: 20
+    spriteID: cdf17151846d8e8419a1438bc8c7a844
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 90}
+  - name: attack1&2&3 without weapon_Frame_6
+    originalName: 
+    pivot: {x: 0.57142854, y: -0.76190484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 4
+      width: 14
+      height: 21
+    spriteID: 7efd9ac030ef31a4ba591fdb2a8f7f46
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 4}
+  - name: attack1&2&3 without weapon_Frame_7
+    originalName: 
+    pivot: {x: 0.7272727, y: -0.76190484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 49
+      y: 62
+      width: 11
+      height: 21
+    spriteID: 9ac3233c2086c2046a72500cc7a0f5f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 49, y: 62}
+  - name: attack1&2&3 without weapon_Frame_8
+    originalName: 
+    pivot: {x: 0.57142854, y: -0.8000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 62
+      width: 14
+      height: 20
+    spriteID: 727a3e8d2cf938d4ca3fc53ce10f5894
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 62}
+  - name: attack1&2&3 without weapon_Frame_9
+    originalName: 
+    pivot: {x: 0.57142854, y: -0.76190484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 33
+      width: 14
+      height: 21
+    spriteID: 66e072c2d39abff4b8fb9b29193d61d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 33}
+  - name: attack1&2&3 without weapon_Frame_10
+    originalName: 
+    pivot: {x: 0.45454544, y: -0.76190484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 49
+      y: 91
+      width: 11
+      height: 21
+    spriteID: 3fe90e2725d54af4db9ea82cba4c183c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 49, y: 91}
+  - name: attack1&2&3 without weapon_Frame_11
+    originalName: 
+    pivot: {x: 0.57142854, y: -0.8000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 90
+      width: 14
+      height: 20
+    spriteID: 9895cf52408c0544a944d22f696ca19e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 27, y: 90}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 227198830
+    name: attack1&2&3 without weapon
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: attack1&2&3 without weapon_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 16
+        y: 16
+        width: 15
+        height: 21
+      spriteId: b3b8bedd8fc5fdb45b5de54d3faa9f59
+    - name: attack1&2&3 without weapon_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 19
+        y: 16
+        width: 12
+        height: 21
+      spriteId: a663156f2b28e454b8b68ebac71a3f32
+    - name: attack1&2&3 without weapon_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 16
+        y: 16
+        width: 15
+        height: 20
+      spriteId: 4ec7235b963eb184d942150712066b61
+    - name: attack1&2&3 without weapon_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 16
+        y: 16
+        width: 15
+        height: 21
+      spriteId: b2147107ec69ff4409406b5bcd2060b3
+    - name: attack1&2&3 without weapon_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 16
+        y: 16
+        width: 12
+        height: 21
+      spriteId: 806967fe3ea3e1f42aadb3369e93bbdd
+    - name: attack1&2&3 without weapon_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 16
+        y: 16
+        width: 15
+        height: 20
+      spriteId: cdf17151846d8e8419a1438bc8c7a844
+    - name: attack1&2&3 without weapon_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 16
+        y: 16
+        width: 14
+        height: 21
+      spriteId: 7efd9ac030ef31a4ba591fdb2a8f7f46
+    - name: attack1&2&3 without weapon_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 16
+        y: 16
+        width: 11
+        height: 21
+      spriteId: 9ac3233c2086c2046a72500cc7a0f5f4
+    - name: attack1&2&3 without weapon_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 16
+        y: 16
+        width: 14
+        height: 20
+      spriteId: 727a3e8d2cf938d4ca3fc53ce10f5894
+    - name: attack1&2&3 without weapon_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 16
+        y: 16
+        width: 14
+        height: 21
+      spriteId: 66e072c2d39abff4b8fb9b29193d61d3
+    - name: attack1&2&3 without weapon_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 19
+        y: 16
+        width: 11
+        height: 21
+      spriteId: 3fe90e2725d54af4db9ea82cba4c183c
+    - name: attack1&2&3 without weapon_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 16
+        y: 16
+        width: 14
+        height: 20
+      spriteId: 9895cf52408c0544a944d22f696ca19e
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 48, y: 48}
