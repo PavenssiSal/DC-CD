@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Cainos.PixelArtTopDown_Basic
 {
+    //This is made by Cainos and modified with GPT, and I copied...Most of it for the actual PlayerController
     public class TopDownCharacterController : MonoBehaviour
     {
         public float speed;                // Normal movement speed
