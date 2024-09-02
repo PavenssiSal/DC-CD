@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="1">
- <tileset firstgid="1" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Pixel Art Top Down - Basic/Texture/TX Tileset Wall.tsx"/>
- <tileset firstgid="257" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Pixel Art Top Down - Basic/Texture/TX Shadow.tsx"/>
- <tileset firstgid="513" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Pixel Art Top Down - Basic/Texture/TX Tileset Grass.tsx"/>
- <tileset firstgid="577" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Houses_Pack/houses.tsx"/>
- <tileset firstgid="1601" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Castle interior x exterior/castle_interriors.tsx"/>
- <tileset firstgid="2921" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Castle interior x exterior/castle_outside_shadows.tsx"/>
- <tileset firstgid="4571" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Pixel Art Top Down - Basic/Texture/TX Props.tsx"/>
- <tileset firstgid="4827" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Pixel Art Top Down - Basic/Texture/TX Plant.tsx"/>
- <tileset firstgid="5083" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/Pixel Art Top Down - Basic/Texture/TX Shadow Plant.tsx"/>
- <tileset firstgid="5339" source="D:/PAvenssiboy.game/Game sprites/Maailman sprites/House interior/decorative_props.tsx"/>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="16" nextobjectid="1">
+ <tileset firstgid="1" source="../Game sprites/World Sprites/Pixel Art Top Down - Basic/Texture/TX Tileset Wall.tsx"/>
+ <tileset firstgid="257" source="../Game sprites/World Sprites/Pixel Art Top Down - Basic/Texture/TX Shadow.tsx"/>
+ <tileset firstgid="513" source="../Game sprites/World Sprites/Pixel Art Top Down - Basic/Texture/TX Tileset Grass.tsx"/>
+ <tileset firstgid="577" source="../Game sprites/World Sprites/Houses_Pack/houses.tsx"/>
+ <tileset firstgid="1601" source="../Game sprites/World Sprites/Castle interior x exterior/castle_interriors.tsx"/>
+ <tileset firstgid="2921" source="../Game sprites/World Sprites/Castle interior x exterior/castle_outside_shadows.tsx"/>
+ <tileset firstgid="4571" source="../Game sprites/World Sprites/Pixel Art Top Down - Basic/Texture/TX Props.tsx"/>
+ <tileset firstgid="4827" source="../Game sprites/World Sprites/Pixel Art Top Down - Basic/Texture/TX Plant.tsx"/>
+ <tileset firstgid="5083" source="../Game sprites/World Sprites/Pixel Art Top Down - Basic/Texture/TX Shadow Plant.tsx"/>
+ <tileset firstgid="5339" source="../Game sprites/World Sprites/House interior/decorative_props.tsx"/>
  <layer id="1" name="Maailman pohja" width="30" height="30">
   <data encoding="csv">
 540,537,513,541,523,544,529,513,520,528,529,528,522,515,527,517,528,522,539,518,543,519,524,530,531,515,538,529,531,535,

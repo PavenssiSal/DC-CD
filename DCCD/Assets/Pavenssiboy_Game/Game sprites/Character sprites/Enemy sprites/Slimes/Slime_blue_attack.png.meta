@@ -110,6 +110,90 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: Slime_blue_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c8f0a3dcea2494aa9135ffccc18245
+      internalID: -722300259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_blue_attack_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a98475cb08014b44b6feb13fe627515
+      internalID: 365552561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_blue_attack_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346c48b2038c3e44f95975ed1cc8f7d9
+      internalID: 1071439269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_blue_attack_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a811f90bc04a814c8b352c58422545a
+      internalID: 1720546485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: st2u_x0y32-w32h32
       rect:
         serializedVersion: 2
@@ -124,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6452bfd64db00e44b99d1c9b667fed8d
-      internalID: -1269056877
+      spriteID: 9089a991404bec644858d08b61a09a6f
+      internalID: -427906701
       vertices: []
       indices: 
       edges: []
@@ -145,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79ebb830fde634e47a33c61b541aa9b0
-      internalID: -473218014
+      spriteID: 12da3fc8c318e3d4084d25d9948fc5ab
+      internalID: -1121474064
       vertices: []
       indices: 
       edges: []
@@ -166,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4229297c85a0b0144a3c01c45db3d4c0
-      internalID: -450766963
+      spriteID: 81c71a07b8754e44c939eca5d5e9d18d
+      internalID: 1842347858
       vertices: []
       indices: 
       edges: []
@@ -187,8 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cbb027d0bc609445900ae90a12b16e8
-      internalID: -816514803
+      spriteID: 1467a5fa02fb5ac41aaf2aca2c23c49f
+      internalID: -1450190134
       vertices: []
       indices: 
       edges: []
@@ -204,10 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      st2u_x0y0-w32h32: -450766963
-      st2u_x0y32-w32h32: -1269056877
-      st2u_x32y0-w32h32: -816514803
-      st2u_x32y32-w32h32: -473218014
+      Slime_blue_attack_0: -722300259
+      Slime_blue_attack_1: 365552561
+      Slime_blue_attack_2: 1071439269
+      Slime_blue_attack_3: 1720546485
+      st2u_x0y0-w32h32: 1842347858
+      st2u_x0y32-w32h32: -427906701
+      st2u_x32y0-w32h32: -1450190134
+      st2u_x32y32-w32h32: -1121474064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

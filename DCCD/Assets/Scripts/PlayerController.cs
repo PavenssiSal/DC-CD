@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Globaali muuttuja
     public static PlayerController instance;
 
     [Header("KARTTA")]
@@ -23,52 +22,51 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;       // Indicates if the player can dash
     private bool isDashing = false;    // Tracks if the player is currently dashing
 
-    private void Start()
-    {
-        //aseta aloituskartan rajat
-        Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
-        //Luodaan yhteys physiikkamoottoriin, jotta pelihahmoa voidaan liikuttaa
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        //Pelihahmo voi liikkua
-        canMove = true;
-    }
+    [Header("ATTACK")]
+    public GameObject swordSwingPrefab;  // Prefab for the sword swing
+    public float attackRange = 1f;       // Range of the attack
+    public float attackDuration = 0.5f;  // Duration of the attack animation
 
     private Animator anim;
+    private Vector2 attackDirection;
+
+    private void Start()
+    {
+        Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        canMove = true;
+    }
 
     private void Update()
     {
         Vector2 dir = Vector2.zero;
 
-        // Movement Input
         if (!isDashing) // Disable normal movement during dash
         {
             if (Input.GetKey(KeyCode.A))
             {
                 dir.x = -1;
-                
+                attackDirection = Vector2.left;
             }
             else if (Input.GetKey(KeyCode.D))
             {
                 dir.x = 1;
-                
+                attackDirection = Vector2.right;
             }
 
             if (Input.GetKey(KeyCode.W))
             {
                 dir.y = 1;
-                
+                attackDirection = Vector2.up;
             }
             else if (Input.GetKey(KeyCode.S))
             {
                 dir.y = -1;
-                
+                attackDirection = Vector2.down;
             }
 
             dir.Normalize();
-            //animator.SetBool("IsMoving", dir.magnitude > 0);
-
-            // Normal movement
             rb.velocity = speed * dir;
         }
 
@@ -77,50 +75,55 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash(dir));
         }
+
+        // Attack input
+        if (Input.GetKeyDown(KeyCode.Space))  // Assuming space is the attack key
+        {
+            StartCoroutine(PerformAttack());
+        }
     }
 
-    private void Animations()
+    private IEnumerator PerformAttack()
     {
-        if (canMove && mov.magnitude !=0)
+        // Check if attack is allowed
+        if (!canMove || anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            yield break;
+
+        // Trigger attack animation
+        anim.SetTrigger("Attack");
+
+        // Create sword swing effect
+        GameObject swordSwing = Instantiate(swordSwingPrefab, transform.position, Quaternion.identity);
+        swordSwing.transform.up = -attackDirection;  // Set sword swing direction
+        Destroy(swordSwing, attackDuration);
+
+        // Perform attack logic (e.g., raycast to detect enemies)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, attackDirection, attackRange);
+        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
         {
-            anim.SetFloat("MoveX", mov.x);
-            anim.SetFloat("MoveY", mov.y);
-            anim.SetBool("Walking", true);
+            // Handle enemy hit (e.g., apply damage)
+            Debug.Log("Hit " + hit.collider.name);
         }
-        else
-        {
-            anim.SetBool("Walking", false);
-        }
+
+        yield return new WaitForSeconds(attackDuration);
     }
+
     private IEnumerator Dash(Vector2 direction)
     {
         if (direction.magnitude == 0)
             yield break;  // Prevent dashing with no direction
 
-        // Disable movement and further dashing until the dash is complete
         canDash = false;
         isDashing = true;
-
-        // Store the initial velocity so it can be restored after the dash
         Vector2 initialVelocity = rb.velocity;
-
-        // Calculate the speed required to cover the dash distance within the dash duration
         float dashSpeed = dashDistance / dashDuration;
         rb.velocity = direction * dashSpeed;
 
-        // // Dash animation placeholder
-        // animator.SetTrigger("Dash");
-
-        // Wait for the duration of the dash
         yield return new WaitForSeconds(dashDuration);
 
-        // Restore normal movement
         rb.velocity = initialVelocity;
-
-        // End the dash
         isDashing = false;
 
-        // Wait for the cooldown duration before enabling dash again
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
