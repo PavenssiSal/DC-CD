@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public bool canMove;
     public float speed = 2f;
     
-
     public float dashDistance = 5f;    // Distance covered during the dash
     public float dashDuration = 0.2f;  // Duration of the dash in seconds
     public float dashCooldown = 2f;    // Cooldown time between dashes
@@ -22,15 +21,13 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;    // Tracks if the player is currently dashing
 
     [Header("ATTACK")]
-    public GameObject swordSwingPrefab;  // Prefab for the sword swing
-    public float attackRange = 1f;       // Range of the attack
     public float attackDuration = 0.5f;  // Duration of the attack animation
+    public float attackRange = 3.0f;
 
+    [Header("ANIMATOR")]
     private Animator anim;
     private Rigidbody2D rb;
     private Vector2 movement;
-    private Vector2 attackDirection;
-
     private void Start()
     {
         Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
@@ -66,26 +63,22 @@ public class PlayerController : MonoBehaviour
 
         if (!isDashing) // Disable normal movement during dash
         {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 dir.x = -1;
-                attackDirection = Vector2.left;
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 dir.x = 1;
-                attackDirection = Vector2.right;
             }
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 dir.y = 1;
-                attackDirection = Vector2.up;
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 dir.y = -1;
-                attackDirection = Vector2.down;
             }
 
             dir.Normalize();
@@ -99,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Attack input
-        if (Input.GetKeyDown(KeyCode.Space))  // Assuming space is the attack key
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse1))  // Assuming space is the attack key
         {
             StartCoroutine(PerformAttack());
         }
@@ -129,25 +122,40 @@ public class PlayerController : MonoBehaviour
         if (!canMove || anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             yield break;
 
-        //Call the attack animator
-        AttackAnimation();
+        // Prevent movement during attack
+        canMove = false;
 
-        // Create sword swing effect
-        GameObject swordSwing = Instantiate(swordSwingPrefab, transform.position, Quaternion.identity);
-        swordSwing.transform.up = -attackDirection;  // Set sword swing direction
-        Destroy(swordSwing, attackDuration);
+        // Set the attack animation trigger based on the direction the player last faced
+        anim.SetBool("isAttack", true);
 
-        // Perform attack logic (e.g., raycast to detect enemies)
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, attackDirection, attackRange);
-        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+        // Perform the attack based on the last facing direction
+        Vector2 attackPosition = rb.position;
+        Vector2 attackDirection = new Vector2(anim.GetFloat("Last_Horizontal"), anim.GetFloat("Last_Vertical")).normalized;
+
+        // Define the area of attack (could use OverlapBox, Circle, or Raycast depending on the setup)
+        RaycastHit2D[] hitEnemies = Physics2D.RaycastAll(attackPosition, attackDirection, attackRange);
+
+        // Process the hits, applying damage if necessary
+        foreach (RaycastHit2D hit in hitEnemies)
         {
-            // Handle enemy hit (e.g., apply damage)
-            Debug.Log("Hit " + hit.collider.name);
+            if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+            {
+                // Damage the enemy (assuming enemy has a TakeDamage method)
+                //hit.collider.GetComponent<Enemy>().TakeDamage(1);  // Assuming 1 damage
+                Debug.Log("You hit something");
+            }
         }
 
+        // Wait for the attack animation to finish
         yield return new WaitForSeconds(attackDuration);
+
+        // Reset attack state
+        anim.SetBool("isAttack", false);
+        canMove = true;
     }
 
+
+    //Probably not atleast fully me
     private IEnumerator Dash(Vector2 direction)
     {
         if (direction.magnitude == 0)
