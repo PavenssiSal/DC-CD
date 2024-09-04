@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour
     [Header("LIIKKUMINEN")]
     public bool canMove;
     public float speed = 2f;
-    private Rigidbody2D rb;
-    private Vector2 mov;
+    
 
     public float dashDistance = 5f;    // Distance covered during the dash
     public float dashDuration = 0.2f;  // Duration of the dash in seconds
@@ -28,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public float attackDuration = 0.5f;  // Duration of the attack animation
 
     private Animator anim;
+    private Rigidbody2D rb;
+    private Vector2 movement;
     private Vector2 attackDirection;
 
     private void Start()
@@ -41,6 +42,27 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Vector2 dir = Vector2.zero;
+
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+        anim.SetFloat("Speed", movement.sqrMagnitude);
+
+        if (Input.GetAxisRaw("Horizontal") == 1 ||
+       Input.GetAxisRaw("Horizontal") == -1 ||
+       Input.GetAxisRaw("Vertical") == 1 ||
+       Input.GetAxisRaw("Vertical") == -1)
+        {
+            anim.SetFloat("Last_Horizontal",
+                              Input.GetAxisRaw("Horizontal"));
+            anim.SetFloat("Last_Vertical",
+                              Input.GetAxisRaw("Vertical"));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+           anim.SetBool("isAttack", true);
 
         if (!isDashing) // Disable normal movement during dash
         {
@@ -83,14 +105,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void AttackAnimation()
+    {
+        if (anim.GetBool("isAttack") == true)
+        {
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            rb.MovePosition(rb.position + movement * speed *
+                            Time.fixedDeltaTime);
+        }
+    }
+
+    void StopAttack()
+    {
+        if (anim.GetBool("isAttack"))
+            anim.SetBool("isAttack", false);
+    }
     private IEnumerator PerformAttack()
     {
         // Check if attack is allowed
         if (!canMove || anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             yield break;
 
-        // Trigger attack animation
-        anim.SetTrigger("Attack");
+        //Call the attack animator
+        AttackAnimation();
 
         // Create sword swing effect
         GameObject swordSwing = Instantiate(swordSwingPrefab, transform.position, Quaternion.identity);
