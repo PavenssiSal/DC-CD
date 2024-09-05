@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [Header("ATTACK")]
     public float attackDuration = 0.5f;  // Duration of the attack animation
     public float attackRange = 3.0f;
+    private bool canAttack = true;  // This will be used to check if the player can attack
+    public float attackCooldown = 0.5f;  // Set the desired cooldown duration
 
     [Header("ANIMATOR")]
     private Animator anim;
@@ -119,11 +121,11 @@ public class PlayerController : MonoBehaviour
     private IEnumerator PerformAttack()
     {
         // Check if attack is allowed
-        if (!canMove || anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        if (!canAttack || !canMove || anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             yield break;
 
-        // Prevent movement during attack
-        canMove = false;
+        // Prevent further attacks until cooldown is over
+        canAttack = false;
 
         // Set the attack animation trigger based on the direction the player last faced
         anim.SetBool("isAttack", true);
@@ -140,7 +142,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider != null && hit.collider.CompareTag("Enemy"))
             {
-                // Damage the enemy (assuming enemy has a TakeDamage method)
+                // Damage the enemy (assuming enemy has a TakeDamage method) will be added later
                 //hit.collider.GetComponent<Enemy>().TakeDamage(1);  // Assuming 1 damage
                 Debug.Log("You hit something");
             }
@@ -151,7 +153,12 @@ public class PlayerController : MonoBehaviour
 
         // Reset attack state
         anim.SetBool("isAttack", false);
-        canMove = true;
+
+        // Start cooldown period
+        yield return new WaitForSeconds(attackCooldown);
+
+        // Allow the player to attack again
+        canAttack = true;
     }
 
 
