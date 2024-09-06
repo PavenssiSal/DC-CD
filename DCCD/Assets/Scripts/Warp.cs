@@ -9,6 +9,7 @@ public class Warp : MonoBehaviour
     //Kohde, joka siirtyy. Eli pelaaja
     public GameObject target;
 
+
     private void Awake()
     {
         //Piilotetaan Warp GameObjekti
@@ -25,6 +26,13 @@ public class Warp : MonoBehaviour
             collision.transform.position = target.transform.GetChild(0).transform.position;
             //Siirt‰‰ kameran
             Camera.main.GetComponent<MainCamera>().SetBound(targetMap);
+
+            // Update the player's current map in the PlayerController
+            PlayerController playerController = collision.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.UpdateCurrentMap(targetMap);
+            }
         }
     }
 }

@@ -6,8 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
+    public Enemy enemy;
+
     [Header("KARTTA")]
     public GameObject initialMap;
+    // Tracks the player's current map
+    public GameObject currentMap;
 
     [Header("LIIKKUMINEN")]
     public bool canMove;
@@ -26,16 +30,23 @@ public class PlayerController : MonoBehaviour
     private bool canAttack = true;  // This will be used to check if the player can attack
     public float attackCooldown = 0.5f;  // Set the desired cooldown duration
 
-    [Header("ANIMATOR")]
+    [Header("ANIMATOR")] //Animator stuff
     private Animator anim;
     private Rigidbody2D rb;
     private Vector2 movement;
+
+    [Header("Everything else")] //Mischalanious stuff that doesn't need its own Header
+    public int money;
+
+
     private void Start()
     {
         Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         canMove = true;
+
+        currentMap = initialMap;
     }
 
     private void Update()
@@ -100,6 +111,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Method to update the current map
+    public void UpdateCurrentMap(GameObject newMap)
+    {
+        currentMap = newMap;
+    }
+
     void AttackAnimation()
     {
         if (anim.GetBool("isAttack") == true)
@@ -143,8 +160,8 @@ public class PlayerController : MonoBehaviour
             if (hit.collider != null && hit.collider.CompareTag("Enemy"))
             {
                 // Damage the enemy (assuming enemy has a TakeDamage method) will be added later
-                //hit.collider.GetComponent<Enemy>().TakeDamage(1);  // Assuming 1 damage
                 Debug.Log("You hit something");
+                enemy.Enemyhealth--;
             }
         }
 
