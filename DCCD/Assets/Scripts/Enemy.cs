@@ -10,6 +10,11 @@ public class Enemy : MonoBehaviour
     public int Enemyhealth;
     public float speed = 2f;  // Speed of the enemy movement
 
+    [Header("ANIMATOR")] //Animator stuff
+    private Animator anim;
+    private Rigidbody2D rb;
+    private Vector2 movement;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +53,7 @@ public class Enemy : MonoBehaviour
             Vector3 direction = (player.transform.position - transform.position).normalized;
             // Move the enemy towards the player
             transform.position += direction * speed * Time.deltaTime;
+            //anim.SetFloat("Speed", 1);
         }
     }
 }
