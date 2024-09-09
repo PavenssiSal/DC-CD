@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
     public Enemy enemy;
+    public YouLose loser;
 
-    [Header("KARTTA")]
+    [Header("Map")]
     public GameObject initialMap;
     // Tracks the player's current map
     public GameObject currentMap;
 
-    [Header("LIIKKUMINEN")]
+    [Header("Smovement")]
     public bool canMove;
     public float speed = 2f;
     
@@ -24,11 +27,15 @@ public class PlayerController : MonoBehaviour
     private bool canDash = true;       // Indicates if the player can dash
     private bool isDashing = false;    // Tracks if the player is currently dashing
 
-    [Header("ATTACK")]
+    [Header("Combat")]
     public float attackDuration = 0.5f;  // Duration of the attack animation
     public float attackRange = 3.0f;
     private bool canAttack = true;  // This will be used to check if the player can attack
     public float attackCooldown = 0.5f;  // Set the desired cooldown duration
+    public int damage = 1;
+    public int knockback = 100;
+    public int MaxHealth = 5;
+    public int currentHealth;
 
     [Header("ANIMATOR")] //Animator stuff
     private Animator anim;
@@ -41,12 +48,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        loser = FindObjectOfType<YouLose>();
         Camera.main.GetComponent<MainCamera>().SetBound(initialMap);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         canMove = true;
 
         currentMap = initialMap;
+        currentHealth = MaxHealth;
     }
 
     private void Update()
@@ -109,6 +118,38 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(PerformAttack());
         }
+        
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            TakeDamage();
+        }
+        else
+        {
+            
+        }
+    }
+    private void TakeDamage()
+    {
+        currentHealth -= enemy.damage;
+
+        if (currentHealth <= 0) //Jos el‰m‰t = 0, do death state ja pelaa ‰‰niefekti ja poistaa syd‰mmen, jonka takana on rikkin‰inen versio
+        {
+            
+            //AudioManager.instance.Play("Death");
+
+            //Heart.SetActive(false);
+
+            currentHealth = 0;
+        }
+        if (currentHealth > 0) //If hp more than 0, play damage ‰‰niefekti
+        {
+            //AudioManager.instance.Play("Damage");
+        }
+
+        //UpdateHealthText();
     }
 
     // Method to update the current map
@@ -117,6 +158,7 @@ public class PlayerController : MonoBehaviour
         currentMap = newMap;
     }
 
+    //They do something, even if transparent, dont delete
     void AttackAnimation()
     {
         if (anim.GetBool("isAttack") == true)
@@ -159,10 +201,21 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider != null && hit.collider.CompareTag("Enemy"))
             {
-                // Damage the enemy (assuming enemy has a TakeDamage method) will be added later
-                Debug.Log("You hit something");
-                enemy.Enemyhealth--;
-            }
+
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
+
+                if (enemy != null)
+                {
+                    // Damage the enemy (assuming enemy has a TakeDamage method) will be added later
+                    Debug.Log($"You hit something. Damage done " + damage);
+                    enemy.Enemyhealth -= damage;
+
+                    // Apply knockback
+                    Vector2 knockbackDirection = (hit.collider.transform.position - transform.position).normalized;
+                    enemy.ApplyKnockback(knockbackDirection, knockback);
+                }
+                
+            }  
         }
 
         // Wait for the attack animation to finish

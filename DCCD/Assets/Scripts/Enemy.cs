@@ -4,44 +4,43 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Warp warp;
     private PlayerController player;
+
     public int maxHealth = 3; //Kinda self explanitory, no?
     public int Enemyhealth;
+    public int damage = 1;
     public float speed = 2f;  // Speed of the enemy movement
 
-    [Header("ANIMATOR")] //Animator stuff
-    private Animator anim;
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    private Rigidbody2D rb;  // Rigidbody component for physics interaction
+    private bool isKnockedBack = false;
+    private float knockbackDuration = 0.2f;  // Duration of the knockback effect
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
         Enemyhealth = maxHealth;
-
         
         // Find the player in the scene
         player = FindObjectOfType<PlayerController>();
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //He can die
         if (Enemyhealth <= 0)
         {
             player.money++;
             Destroy(gameObject);
         }
-
-        if (player.currentMap.tag == "Forest_1")
+        //Enemy only moves when the player enters the same map where the enemy is
+        if (!isKnockedBack && player.currentMap.tag == "Forest_1")
         {
             MoveTowardsPlayer(); // Call the movement method
-        }
-        else
-        {
-
         }
     }
 
@@ -55,5 +54,29 @@ public class Enemy : MonoBehaviour
             transform.position += direction * speed * Time.deltaTime;
             //anim.SetFloat("Speed", 1);
         }
+    }
+
+    //The rest from here...If there isn't more than the knockback, is by gpt
+
+    // Method to apply knockback to the enemy
+    public void ApplyKnockback(Vector2 direction, float force)
+    {
+        isKnockedBack = true;
+
+        // Apply the knockback force to the enemy's Rigidbody2D
+        rb.AddForce(direction * force, ForceMode2D.Impulse);
+
+        // Start the knockback recovery coroutine
+        StartCoroutine(KnockbackRecovery());
+    }
+
+    // Coroutine to handle knockback recovery
+    private IEnumerator KnockbackRecovery()
+    {
+        yield return new WaitForSeconds(knockbackDuration);
+
+        // Stop the knockback and allow the enemy to move again
+        isKnockedBack = false;
+        rb.velocity = Vector2.zero;  // Reset the velocity to stop movement
     }
 }
