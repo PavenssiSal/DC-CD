@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public int knockback = 100;
     public int MaxHealth = 5;
     public int currentHealth;
+    private bool canTakeDamage = true;
 
     [Header("ANIMATOR")] //Animator stuff
     private Animator anim;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         canMove = true;
+
 
         currentMap = initialMap;
         currentHealth = MaxHealth;
@@ -122,7 +124,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && canTakeDamage == true)
         {
             TakeDamage();
         }
@@ -143,6 +145,8 @@ public class PlayerController : MonoBehaviour
             //Heart.SetActive(false);
 
             currentHealth = 0;
+
+            loser.TriggerGameOver();
         }
         if (currentHealth > 0) //If hp more than 0, play damage ‰‰niefekti
         {
@@ -237,7 +241,7 @@ public class PlayerController : MonoBehaviour
     {
         if (direction.magnitude == 0)
             yield break;  // Prevent dashing with no direction
-
+        canTakeDamage = false;
         canDash = false;
         isDashing = true;
         Vector2 initialVelocity = rb.velocity;
@@ -251,5 +255,6 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+        canTakeDamage = true;
     }
 }

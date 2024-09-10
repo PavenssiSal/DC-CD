@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class YouLose : MonoBehaviour
 {
-
     //Häviöpaneeli
     public GameObject GameEndScreen;
     //Pause
@@ -29,18 +28,11 @@ public class YouLose : MonoBehaviour
             Application.LoadLevel(Application.loadedLevel);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void TriggerGameOver()
     {
-
-
-        //Näytetään häviö paneeli
         GameEndScreen.SetActive(true);
-
-        //Pysäytetään peli
-        gameIsPaused = !gameIsPaused;
+        gameIsPaused = true;
         PauseGame();
-
     }
 
     /// <summary>
