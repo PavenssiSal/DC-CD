@@ -7,6 +7,8 @@ public class YouLose : MonoBehaviour
 {
     //Häviöpaneeli
     public GameObject GameEndScreen;
+    public GameObject UI;
+    public GameObject OpenShop;
     //Pause
     public static bool gameIsPaused;
 
@@ -31,6 +33,8 @@ public class YouLose : MonoBehaviour
     public void TriggerGameOver()
     {
         GameEndScreen.SetActive(true);
+        UI.SetActive(false);
+        OpenShop.SetActive(false);
         gameIsPaused = true;
         PauseGame();
     }

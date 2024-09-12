@@ -37,6 +37,15 @@ public class Shop : MonoBehaviour
         }
         if (ShopOpened)
         {
+            // Check if player has 0 money before attempting to buy
+            if (player.money == 0)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    HahBroke.SetActive(true);
+                    Broke = true;
+                }
+            }
             if (Input.GetKeyDown(KeyCode.Alpha1) && player.money > 0)
             {
                 player.money--;
@@ -57,12 +66,7 @@ public class Shop : MonoBehaviour
                 player.MaxHealth++;
                 Debug.Log("Bought heart");
             }
-            //Broke
-            if (Input.GetKey(KeyCode.Alpha1) && player.money == 0 || Input.GetKey(KeyCode.Alpha2) && player.money == 0 || Input.GetKey(KeyCode.Alpha3) && player.money == 0)
-            {
-                HahBroke.SetActive(true);
-                Broke = true;
-            }
+            
         }
     }
 

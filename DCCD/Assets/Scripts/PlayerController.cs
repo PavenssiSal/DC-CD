@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
     public int knockback = 100;
     public int MaxHealth = 5;
     public int currentHealth;
+    public TMP_Text healthText;
+    public TMP_Text MaxhealthText;
     private bool canTakeDamage = true;
 
     [Header("ANIMATOR")] //Animator stuff
@@ -45,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Everything else")] //Mischalanious stuff that doesn't need its own Header
     public int money;
+    public TMP_Text coinText;
 
 
     private void Start()
@@ -62,6 +67,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        coinText.text = money.ToString();
+        healthText.text = currentHealth.ToString();
+        MaxhealthText.text = MaxHealth.ToString();
+
         Vector2 dir = Vector2.zero;
 
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -197,16 +206,24 @@ public class PlayerController : MonoBehaviour
         Vector2 attackPosition = rb.position;
         Vector2 attackDirection = new Vector2(anim.GetFloat("Last_Horizontal"), anim.GetFloat("Last_Vertical")).normalized;
 
-        // Define the area of attack (could use OverlapBox, Circle, or Raycast depending on the setup)
-        RaycastHit2D[] hitEnemies = Physics2D.RaycastAll(attackPosition, attackDirection, attackRange);
+        // Define the size of the attack box (a rectangular area in front of the player)
+        Vector2 attackBoxSize = new Vector2(1.5f, 1.0f);  // Width and height of the attack box
+        Vector2 attackBoxPosition = attackPosition + attackDirection * attackRange;  // Offset the box in front of the player
+
+        // Visualize the attack area for debugging
+        Debug.DrawLine(attackBoxPosition - attackBoxSize / 2, attackBoxPosition + attackBoxSize / 2, Color.red, attackDuration);
+
+        // Use OverlapBoxAll to detect enemies in the area in front of the player
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackBoxPosition, attackBoxSize, 0f);
+
+
 
         // Process the hits, applying damage if necessary
-        foreach (RaycastHit2D hit in hitEnemies)
+        foreach (Collider2D hit in hitEnemies)
         {
-            if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+            if (hit != null && hit.CompareTag("Enemy"))
             {
-
-                Enemy enemy = hit.collider.GetComponent<Enemy>();
+                Enemy enemy = hit.GetComponent<Enemy>();
 
                 if (enemy != null)
                 {
@@ -215,7 +232,7 @@ public class PlayerController : MonoBehaviour
                     enemy.Enemyhealth -= damage;
 
                     // Apply knockback
-                    Vector2 knockbackDirection = (hit.collider.transform.position - transform.position).normalized;
+                    Vector2 knockbackDirection = (hit.transform.position - transform.position).normalized;
                     enemy.ApplyKnockback(knockbackDirection, knockback);
                 }
                 
@@ -233,6 +250,21 @@ public class PlayerController : MonoBehaviour
 
         // Allow the player to attack again
         canAttack = true;
+    }
+
+    // Method to visualize the attack area
+    private void DebugAttackBox(Vector2 center, Vector2 size)
+    {
+        // Draw the four edges of the rectangle
+        Vector2 bottomLeft = center - size / 2;
+        Vector2 topRight = center + size / 2;
+        Vector2 topLeft = new Vector2(bottomLeft.x, topRight.y);
+        Vector2 bottomRight = new Vector2(topRight.x, bottomLeft.y);
+
+        Debug.DrawLine(bottomLeft, topLeft, Color.red, attackDuration);  // Left edge
+        Debug.DrawLine(topLeft, topRight, Color.red, attackDuration);  // Top edge
+        Debug.DrawLine(topRight, bottomRight, Color.red, attackDuration);  // Right edge
+        Debug.DrawLine(bottomRight, bottomLeft, Color.red, attackDuration);  // Bottom edge
     }
 
 
