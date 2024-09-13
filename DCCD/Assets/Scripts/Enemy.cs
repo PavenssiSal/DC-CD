@@ -6,10 +6,13 @@ public class Enemy : MonoBehaviour
 {
     private PlayerController player;
 
-    public int maxHealth = 3; //Kinda self explanitory, no?
+    public int maxHealth = 5; //Kinda self explanitory, no?
     public int Enemyhealth;
     public int damage = 1;
-    public float speed = 2f;  // Speed of the enemy movement
+    public float speed = 3f;  // Speed of the enemy movement
+    public int knockback = 100;
+
+
 
     private Rigidbody2D rb;  // Rigidbody component for physics interaction
     private bool isKnockedBack = false;
@@ -35,6 +38,10 @@ public class Enemy : MonoBehaviour
         if (Enemyhealth <= 0)
         {
             player.money++;
+
+            // Increment the enemy kill count
+            PlayerController.enemyKillCount++;
+
             Destroy(gameObject);
         }
         //Enemy only moves when the player enters the same map where the enemy is
@@ -43,7 +50,6 @@ public class Enemy : MonoBehaviour
             MoveTowardsPlayer(); // Call the movement method
         }
     }
-
     void MoveTowardsPlayer()
     {
         if (player != null)

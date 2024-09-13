@@ -9,6 +9,7 @@ public class YouLose : MonoBehaviour
     public GameObject GameEndScreen;
     public GameObject UI;
     public GameObject OpenShop;
+
     //Pause
     public static bool gameIsPaused;
 
@@ -26,8 +27,9 @@ public class YouLose : MonoBehaviour
             //Peli käynnistyy
             Time.timeScale = 1.0f;
             gameIsPaused = false;
+            PlayerController.enemyKillCount = 0;
             //Aloitetaan uusi peli
-            Application.LoadLevel(Application.loadedLevel);
+            SceneManager.LoadScene("Game");
         }
     }
     public void TriggerGameOver()

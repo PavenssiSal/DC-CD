@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using TMPro;
+using Unity.Burst.CompilerServices;
 
 public class PlayerController : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class PlayerController : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text MaxhealthText;
     private bool canTakeDamage = true;
+    private bool isKnockedBack = false;
+    private float knockbackDuration = 0.2f;  // Duration of the knockback effect
+    private float damadeCooldown = 0.5f; // How often the player can take damage
+    public static int enemyKillCount = 0;
 
     [Header("ANIMATOR")] //Animator stuff
     private Animator anim;
@@ -131,16 +136,24 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    private void OnCollisionEnter2D(Collision2D other)
+
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy" && canTakeDamage == true)
         {
-            TakeDamage();
+            StartCoroutine(DamageEverything());  
         }
         else
         {
             
         }
+    }
+    private IEnumerator DamageEverything()
+    {
+        canTakeDamage = false; // Prevent further damage until the cooldown ends
+        TakeDamage();
+        yield return new WaitForSeconds(damadeCooldown); // Wait for the cooldown duration
+        canTakeDamage = true;  // Allow damage again after the cooldown
     }
     private void TakeDamage()
     {
@@ -157,12 +170,34 @@ public class PlayerController : MonoBehaviour
 
             loser.TriggerGameOver();
         }
-        if (currentHealth > 0) //If hp more than 0, play damage ‰‰niefekti
+        else if (currentHealth > 0) //If hp more than 0, play damage ‰‰niefekti
         {
             //AudioManager.instance.Play("Damage");
+            
         }
 
         //UpdateHealthText();
+    }
+
+    public void ApplyKnockback(Vector2 direction, float force)
+    {
+        isKnockedBack = true;
+
+        // Apply the knockback force to the enemy's Rigidbody2D
+        rb.AddForce(direction * force, ForceMode2D.Impulse);
+
+        // Start the knockback recovery coroutine
+        StartCoroutine(KnockbackRecovery());
+    }
+
+    // Coroutine to handle knockback recovery
+    private IEnumerator KnockbackRecovery()
+    {
+        yield return new WaitForSeconds(knockbackDuration);
+
+        // Stop the knockback and allow the enemy to move again
+        isKnockedBack = false;
+        rb.velocity = Vector2.zero;  // Reset the velocity to stop movement
     }
 
     // Method to update the current map
