@@ -49,10 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f296f6e915ad845830a11e2203ce7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 7
   Enemyhealth: 0
   damage: 1
-  speed: 1.5
+  speed: 1.7
   knockback: 100
 --- !u!212 &3006037636939538426
 SpriteRenderer:
