@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     // Käynnistettävän Scenen nimi (Eka taso)
     public string Game;
     public string Credits;
+    public string Alkuruutu;
     public void NewGame()
     {
         // Aloitetaan uusi peli
@@ -19,6 +20,11 @@ public class MainMenu : MonoBehaviour
     {
         // Mennään creditseihin
         SceneManager.LoadScene(Credits);
+    }
+    public void Mainmenu()
+    {
+        // Mennään creditseihin
+        SceneManager.LoadScene(Alkuruutu);
     }
 
     public void QuitGame()
