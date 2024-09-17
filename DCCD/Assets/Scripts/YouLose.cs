@@ -19,7 +19,7 @@ public class YouLose : MonoBehaviour
         //ESCill‰ p‰‰see p‰‰valikkoon
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            SceneManager.LoadScene("MainMenu");
         }
         //ENTERill‰ ladataan peli alkamaan uudestaan
         if (Input.GetKeyDown(KeyCode.Return))
