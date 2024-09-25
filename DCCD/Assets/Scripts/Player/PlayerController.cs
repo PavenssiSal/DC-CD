@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public Enemy enemy;
     public YouLose loser;
+    public QuestManager QuestManager;
 
     [Header("Map")]
     public GameObject initialMap;
@@ -55,7 +56,6 @@ public class PlayerController : MonoBehaviour
     public int money;
     public TMP_Text coinText;
 
-
     private void Start()
     {
         loser = FindObjectOfType<YouLose>();
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         MaxhealthText.text = MaxHealth.ToString();
 
         Vector2 dir = Vector2.zero;
-
+        
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class YouLose : MonoBehaviour
+public class YouWin : MonoBehaviour
 {
+
     //Häviöpaneeli
-    public GameObject GameEndScreen;
+    public GameObject GameWinScreen;
     public GameObject UI;
     public GameObject OpenShop;
     public GameObject Quest;
@@ -33,13 +34,13 @@ public class YouLose : MonoBehaviour
             SceneManager.LoadScene("Game");
         }
     }
-    public void TriggerGameOver()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameEndScreen.SetActive(true);
+        GameWinScreen.SetActive(true);
         UI.SetActive(false);
         OpenShop.SetActive(false);
         Quest.SetActive(false);
-        gameIsPaused = true;
+        gameIsPaused = !gameIsPaused;
         PauseGame();
     }
 

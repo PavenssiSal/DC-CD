@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private PlayerController player;
+    public QuestManager questmanager;
 
     public int maxHealth = 5; //Kinda self explanitory, no?
     public int Enemyhealth;
