@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
         Vector2 attackBoxPosition = attackPosition + attackDirection * attackRange;  // Offset the box in front of the player
 
         // Visualize the attack area for debugging
-      //Debug.DrawLine(attackBoxPosition - attackBoxSize / 2, attackBoxPosition + attackBoxSize / 2, Color.red, attackDuration);
+    Debug.DrawLine(attackBoxPosition - attackBoxSize / 2, attackBoxPosition + attackBoxSize / 2, Color.red, attackDuration);
 
         // Use OverlapBoxAll to detect enemies in the area in front of the player
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackBoxPosition, attackBoxSize, 0f);
