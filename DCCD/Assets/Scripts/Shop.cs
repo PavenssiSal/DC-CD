@@ -14,6 +14,10 @@ public class Shop : MonoBehaviour
     private bool Broke = false;
 
     // Update is called once per frame
+    private void Start()
+    {
+        OpenShop.SetActive(true);
+    }
     void Update()
     {
         //B avaa kaupan, jos se ei ole jo auki
